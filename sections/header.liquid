@@ -54,6 +54,21 @@
     {% endif %}
   {% endif %}
 
+  <div class="header-bars {% if section.settings.header_bars == false %} hidden {% endif %}">
+    <div>
+      <div class="header-bar" style="background: {{ section.settings.color_header_bar_1 }};"></div>
+    </div>
+    <div class="header-bar-padding">
+      <div class="header-bar" style="background: {{ section.settings.color_header_bar_2 }};"></div>
+    </div>
+    <div class="header-bar-padding">  
+      <div class="header-bar" style="background: {{ section.settings.color_header_bar_3 }};"></div>
+    </div>
+    <div class="header-bar-padding">
+      <div class="header-bar" style="background: {{ section.settings.color_header_bar_4 }};"></div>
+    </div>
+  </div>
+
   <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner"
    style="background: {{ section.settings.color_header_bg }};">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav"
@@ -487,6 +502,51 @@
         "pt-BR": "Fundo"
       },
       "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_bars",
+      "label": {
+        "en": "Display",
+        "pt-BR": "Exibir Barras do Cabeçalho"
+      },
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "color_header_bar_1",
+      "label": {
+        "en": "Background",
+        "pt-BR": "Fundo"
+      },
+      "default": "#FFBF00"
+    },
+    {
+      "type": "color",
+      "id": "color_header_bar_2",
+      "label": {
+        "en": "Background",
+        "pt-BR": "Fundo"
+      },
+      "default": "#FF9A1E"
+    },
+    {
+      "type": "color",
+      "id": "color_header_bar_3",
+      "label": {
+        "en": "Background",
+        "pt-BR": "Fundo"
+      },
+      "default": "#F15D1D"
+    },
+    {
+      "type": "color",
+      "id": "color_header_bar_4",
+      "label": {
+        "en": "Background",
+        "pt-BR": "Fundo"
+      },
+      "default": "#E6361C"
     },
     {
       "type": "header",
