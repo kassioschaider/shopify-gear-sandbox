@@ -54,10 +54,10 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
-    <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
-
-
+  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner"
+   style="background: {{ section.settings.color_header_bg }};">
+    <div class="grid grid--no-gutters grid--table site-header__mobile-nav"
+    style="background: {{ section.settings.color_header_bg }};">
 
       {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
@@ -78,9 +78,9 @@
           Site name gets precedence with H1 tag on homepage, div on other pages.
         {% endcomment %}
         {% if request.page_type == 'index' %}
-          <h1 class="h2 site-header__logo">
+          <h1 class="site-header__logo">
         {% else %}
-          <div class="h2 site-header__logo">
+          <div class="site-header__logo">
         {% endif %}
           {% if section.settings.logo %}
             {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -471,6 +471,22 @@
         "zh-TW": "選單"
       },
       "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Header Colors",
+        "pt-BR": "Cores do Cabeçalho"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_header_bg",
+      "label": {
+        "en": "Background",
+        "pt-BR": "Fundo"
+      },
+      "default": "#fff"
     },
     {
       "type": "header",

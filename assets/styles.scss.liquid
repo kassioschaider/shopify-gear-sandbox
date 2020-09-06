@@ -12,8 +12,15 @@ $color-sky: #D3DEEC;
 $color-sand: #FCEDC9;
 $color-cloud: #FFFFFF;
 
+//Elements
 $color-border: #DFDFDF;
 
+// Backgrounds
+$color-body: {{ settings.color_body_bg }};
+$color-header-bg: #fff;
+
+// Header
+$header-mobile-height: 72px;
 
 //Fonts
 //--------------------------------------------------------------------------------------------
@@ -93,4 +100,26 @@ p {
 .preamble {
     font-size: 16px;
     line-height: 24px;
+}
+
+//Header
+//--------------------------------------------------------------------------------------------
+.site-header {
+    height: $header-mobile-height;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 0 20px;
+}
+
+.site-header__icon {
+    padding: 0;
+
+    .icon {
+        width: 40px;
+    }
+}
+
+.site-header__mobile-nav {
+
 }

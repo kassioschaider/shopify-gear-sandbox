@@ -4798,11 +4798,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 /*================ MODULES ================*/
 .site-header {
   position: relative;
-  background-color: $color-body;
-
-  @include media-query($small) {
-    border-bottom: 1px solid $color-border;
-  }
 
   @include media-query($medium-up) {
     padding: 0 $gutter-site;
@@ -4817,7 +4812,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 /// Logo
 
 .site-header__logo {
-  margin: 15px 0;
 
   .logo-align--center & {
     text-align: center;
@@ -4830,7 +4824,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   @include media-query($small) {
-    padding-left: $gutter-site-mobile;
     text-align: left;
 
     img {
@@ -4875,7 +4868,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
   @include media-query($small) {
     width: auto;
-    padding-right: 13px;
 
     .btn--link,
     .site-header__cart {
@@ -4974,20 +4966,20 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   display: none;
 }
 
-.site-header__icon {
+.site-header__icon {  
   @include media-query($small) {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 10px 11px;
-    margin: 0;
-  }
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 11px;
+  margin: 0;
+}
 
-  .icon-search {
+.icon-search {
 
-    @include media-query($medium-up) {
-      margin-right: 3px;
-    }
+  @include media-query($medium-up) {
+    margin-right: 3px;
   }
+}
 }
 
 ///
@@ -5313,7 +5305,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   display: block;
   position: fixed;
   width: 100%;
-  background-color: $color-body;
   z-index: 9999;
   border: 1px solid $color-border;
   transform: translateY(0%);
@@ -6261,7 +6252,6 @@ $nav-button-padding: 15px;
 .site-header__mobile-nav {
   z-index: $z-index-mobile-nav;
   position: relative;
-  background-color: $color-body;
 
   @include media-query($small) {
     @include display-flexbox();
