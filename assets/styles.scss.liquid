@@ -26,6 +26,17 @@ $header-mobile-height: 72px;
 //--------------------------------------------------------------------------------------------
 @font-face {
     font-family: 'Recoleta';
+    src: url('Recoleta-Regular.eot');
+    src: local('Recoleta Regular'), local('Recoleta-Regular'),
+        url('Recoleta-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Recoleta-Regular.woff') format('woff'),
+        url('Recoleta-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recoleta';
     src: url('Recoleta-Bold.eot');
     src: url('Recoleta-Bold.eot?#iefix') format('embedded-opentype'),
         url('Recoleta-Bold.woff2') format('woff2'),
@@ -33,6 +44,19 @@ $header-mobile-height: 72px;
         url('Recoleta-Bold.ttf') format('truetype'),
         url('Recoleta-Bold.svg#Recoleta-Bold') format('svg');
     font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Odudo Mono';
+    src: url('OdudoMono-Regular.eot');
+    src: url('OdudoMono-Regular.eot?#iefix') format('embedded-opentype'),
+        url('OdudoMono-Regular.woff2') format('woff2'),
+        url('OdudoMono-Regular.woff') format('woff'),
+        url('OdudoMono-Regular.ttf') format('truetype'),
+        url('OdudoMono-Regular.svg#OdudoMono-Regular') format('svg');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
@@ -53,7 +77,7 @@ $header-mobile-height: 72px;
 //Body
 //--------------------------------------------------------------------------------------------
 body {
-    font-family: 'Odudo';
+    font-family: 'Odudo Mono';
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
