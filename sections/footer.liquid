@@ -257,17 +257,13 @@
         <p class="footer-list-uppercase">Support</p>
       </div>
       <div>
-        <p class="footer-style-contact">(888) 279 6485</p>
+        <p class="footer-style-contact">{{ section.settings.phone_number }}</p>
       </div>
       <div>
         <p class="footer-style-contact">Email Us</p>
       </div>
       <div>
-        <p class="footer-style-opening">
-          Mon-Fri: 9am - 12am ET
-          Sat: 9am - 5pm ET
-          Sun: 9am - 5pm ET
-        </p>
+        <p class="footer-style-opening">{{ section.settings.opening_hours }}</p>
       </div>
     </div>
 
@@ -397,6 +393,37 @@
   },
   "max_blocks": 4,
   "settings": [
+    {
+      "type": "header",
+      "content": {
+        "en": "Contact",
+        "pt-BR": "Contato"
+      }
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": {
+        "en": "Phone Number",
+        "pt-BR": "Número de Telefone"
+      },
+      "default": {
+        "en": "(000) 000 0000",
+        "pt-BR": "(00) 00000-0000"
+      }
+    },
+    {
+      "type": "text",
+      "id": "opening_hours",
+      "label": {
+        "en": "Opening Hours",
+        "pt-BR": "Horário de Funcionamento"
+      },
+      "default": {
+        "en": "Mon-Fri: 9am - 12am ET Sat: 9am - 5pm ET Sun: 9am - 5pm ET",
+        "pt-BR": "Mon-Fri: 9am - 12am ET Sat: 9am - 5pm ET Sun: 9am - 5pm ET"
+      }
+    },
     {
       "type": "header",
       "content": {
