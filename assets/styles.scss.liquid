@@ -89,8 +89,10 @@ h3, h4, h5, h6 {
     line-height: 26px;
 }
 
-.text-uppercase {
-    font-weight: 600;
+.footer-list-uppercase {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
     text-transform: uppercase;
 }
 
@@ -106,8 +108,8 @@ p {
     line-height: 24px;
 }
 
-// Icons
-// -----------------------------------------------------------    
+//Icons
+//--------------------------------------------------------------------------------------------
 .icon {
     width: auto;
     height: 22px;
@@ -170,4 +172,72 @@ p {
 
 .hidden {
     display: none;
+}
+
+//Footer
+//--------------------------------------------------------------------------------------------
+.site-footer {
+    height: 375px;
+
+    .page-width {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+.site-footer__content {
+    padding-top: 44px;
+}
+
+.site-footer__icon-list {
+    width: 30px;
+    height: 30px;
+    display: inline;
+}
+
+.site-footer__item-inner--link_list {
+
+    width: 325px;
+
+    ul {
+        margin: 0;
+
+        &.active {
+            display: block; 
+        }
+    }
+
+    li {
+        margin: 0;
+        padding-bottom: 34px;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+    }
+
+    .level-2 {
+        font-size: 16px;
+        line-height: 40px;
+        padding-left: 25px;
+        display: none;
+
+        li {
+            padding: 8px 0 0;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    .level-3 {
+        padding-left: 25px;
+        display: none;
+    }
+}
+
+.plus-link {
+    display: flex;
 }

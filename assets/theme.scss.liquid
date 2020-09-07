@@ -7133,7 +7133,6 @@ $toolbar-height-small: 46px;
 
 .site-footer {
   margin-top: $section-spacing;
-  padding: $footer-spacing-large 0 $section-spacing 0;
 
   @include media-query($medium-up) {
     padding-bottom: $section-spacing-small;
@@ -7153,10 +7152,6 @@ $toolbar-height-small: 46px;
   @include align-items(flex-start);
   @include flex-wrap(wrap);
 
-  @include media-query($small) {
-    padding: 0 $footer-wrapper-spacing;
-  }
-
   @include media-query($medium-up) {
     @include flex-wrap(nowrap);
   }
@@ -7165,11 +7160,9 @@ $toolbar-height-small: 46px;
 .site-footer__item {
   @include display-flexbox;
   @include flex(1 1 100%);
-  margin-bottom: $section-spacing;
 
   @include media-query($medium-up) {
     padding: 0 $footer-spacing-small 0 $footer-spacing-small;
-    margin-bottom: $footer-spacing-large;
   }
 
   &:first-of-type {
@@ -7178,9 +7171,6 @@ $toolbar-height-small: 46px;
 
   &:last-of-type {
     padding-right: 0;
-    @include media-query($small) {
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -7260,7 +7250,6 @@ $toolbar-height-small: 46px;
 
 .site-footer__linklist-item {
   display: block;
-  padding: ($grid-gutter / 2) 0;
 
   @include media-query($medium-up) {
     padding: 0 $grid-gutter 5px 0;
@@ -7268,13 +7257,6 @@ $toolbar-height-small: 46px;
 
   &:last-of-type {
     padding-right: 0;
-  }
-}
-
-.site-footer__icon-list {
-  padding-bottom: $grid-gutter;
-  @include media-query($medium-up) {
-    padding-bottom: $footer-spacing-small;
   }
 }
 
@@ -7286,8 +7268,6 @@ $toolbar-height-small: 46px;
 }
 
 .social-icons__item {
-  padding: 0 $footer-spacing-small;
-
   @include media-query($medium-up) {
     &:last-of-type {
       padding-right: 0;

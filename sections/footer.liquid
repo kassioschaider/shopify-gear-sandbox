@@ -113,7 +113,6 @@
   .site-footer__linklist-item a:hover,
   .site-footer__copyright-content a:hover {
     color: {{ footer_text_color_hover }};
-    border-bottom: 1px solid {{ footer_text_color_hover }};
   }
 
   .site-footer__social-icons .social-icons__link:hover {
@@ -148,10 +147,6 @@
                     {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}"
              {{ block.shopify_attributes }}>
           <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
-
-            {%- if block.settings.title -%}
-              <p class="h4">{{ block.settings.title | escape }}</p>
-            {%- endif -%}
 
             {%- case block.type -%}
               {%- when 'newsletter' -%}
@@ -208,28 +203,50 @@
 
               {%- when 'link_list' -%}
                 {%- assign footer_linklist = block.settings.menu -%}
-                  <ul class="site-footer__linklist
-                            {% if inline_list %}list--inline{% endif %}">
+                  <ul class="site-footer__linklist level-1 {% if inline_list %}list--inline{% endif %}">
+
+                    {% comment %} LEVEL 1 {% endcomment %}
                     {%- for link in linklists[footer_linklist].links -%}
                       <li class="site-footer__linklist-item">
-                        <a href="{{ link.url }}"
-                          {% if link.current %} aria-current="page"{% endif %}
-                        >
-                          {{ link.title | escape }}
-                        </a>
+                        <div class="plus-link">
+                          <a class="footer-list-uppercase {% if link.links != blank %}accordion{% endif %}" href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                            {{- link.title | escape -}}
+                          </a>
+                          {% include 'icon-plus' %}
+                        </div>
+
+                      {% comment %} LEVEL 2 {% endcomment %}
+                        {% if link.links != blank %}
+                          <ul class="sublinks level-2">
+                          {% for level2_link in link.links %}
+                            <li>
+
+                              <a class="footer-list-uppercase {% if level2_link.links != blank %}accordion{% endif %}" href="{{ level2_link.url }}">{{- level2_link.title -}}</a>
+                              {% include 'icon-plus' %}
+                              {% comment %} LEVEL 3 {% endcomment %}
+                              {% if level2_link.links != blank  %}
+                                <ul class="sublinks level-3">
+                                {% for level3_link in level2_link.links %}
+                                    <li>
+                                      <a class="footer-list-uppercase" href="{{ level3_link.url }}">{{- level3_link.title -}}</a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+
+                            </li>
+                          {% endfor %}
+                          </ul>
+                        {% endif %}
                       </li>
                     {%- endfor -%}
                   </ul>
-
             {%- endcase -%}
-
           </div>
         </div>
       {%- endfor -%}
     </div>
   </div>
-
-  <hr class="site-footer__hr">
 
   {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
 
@@ -316,11 +333,6 @@
               </li>
             {%- endif -%}
           </ul>
-        {%- else -%}
-          <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %}">
-            <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
-          </div>
         {%- endif -%}
       </div>
 
@@ -331,16 +343,7 @@
       <div class="grid__item medium-up--hide {{ payment_width_class }} small--one-whole">{{ payment_icon_markup }}</div>
 
       {%- if social_icons and show_selectors -%}
-        <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %}">
-          <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-        </div>
       {%- endif -%}
-
-      <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-        <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
-      </div>
     </div>
   </div>
 </footer>
