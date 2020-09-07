@@ -56,6 +56,7 @@
           "logo": "shopify:\/\/shop_images\/logo3.png",
           "logo_max_width": 100,
           "main_linklist": "main-menu",
+          "color_header_bg": "#fff6f6",
           "message": false,
           "home_page_only": true,
           "message_text": "Anuncie algo aqui",
