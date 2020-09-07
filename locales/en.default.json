@@ -410,5 +410,19 @@
       "add_to_apple_wallet": "Add to Apple Wallet",
       "qr_image_alt": "QR code — scan to redeem gift card"
     }
+  },
+  "icons": {
+    "cart": "Cart",
+    "arrow": "Arrow",
+    "minus": "Minus",
+    "plus": "Plus",
+    "search": "Search",
+    "menu": "Menu",
+    "close": "Close",
+    "youtube": "Youtube",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "login": "Login"
   }
 }

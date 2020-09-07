@@ -76,7 +76,7 @@
 
       {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-              {% include 'icon-hamburger' %}
+              {% include 'icon-menu' %}
               {% include 'icon-close' %}
             </button>
           {% endunless %}
@@ -87,7 +87,7 @@
         {%- assign logo_classes = 'medium-up--one-quarter logo-align--left' -%}
       {% endif %}
 
-      <div class="grid__item {{ logo_classes }}">
+      <div class="{{ logo_classes }}">
         {% comment %}
           Use the uploaded logo from theme settings if enabled.
           Site name gets precedence with H1 tag on homepage, div on other pages.

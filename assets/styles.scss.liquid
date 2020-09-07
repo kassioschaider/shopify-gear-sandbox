@@ -110,7 +110,7 @@ p {
 // -----------------------------------------------------------    
 .icon {
     width: auto;
-    height: 24px;
+    height: 22px;
 }
 
 //Header
@@ -124,14 +124,36 @@ p {
 
 .site-header__icon {
     padding: 0;
+    width: 20px;
+    height: 20px;
 
-    .icon {
-        width: 40px;
+    &.site-header__menu {
+        margin-left: 15px;
+    }
+
+    &.site-header__cart {
+        margin-right: 20px;
+    }
+
+    &.site-header__account {
+        margin-right: 28px;
+    }
+
+    &.site-header__search-toggle {
+        margin-right: 28px;
     }
 }
 
 .site-header__mobile-nav {
+    height: $header-mobile-height;
+}
 
+.site-header__icons-wrapper {
+    display: block;
+}
+
+.site-header__logo-image {
+    padding: 16px 64px 16px 28px;
 }
 
 .header-bars {

@@ -410,5 +410,19 @@
       "add_to_apple_wallet": "Adicionar ao Apple Wallet",
       "qr_image_alt": "código QR - digitalizar para resgatar cartão de presente"
     }
+  },
+  "icons": {
+    "cart": "Carrinho",
+    "arrow": "Seta",
+    "minus": "Menos",
+    "plus": "Mais",
+    "search": "Pesquisa",
+    "menu": "Menu",
+    "close": "Fechar",
+    "youtube": "Youtube",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "login": "Entrar"
   }
 }
