@@ -120,6 +120,17 @@ h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
+.footer-style-contact {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.footer-style-opening {
+    font-size: 14px;
+    line-height: 17px;
+}
+
 //Typograph
 //--------------------------------------------------------------------------------------------
 p {
@@ -214,9 +225,13 @@ p {
 }
 
 .site-footer__icon-list {
-    width: 30px;
-    height: 30px;
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    padding-right: 4px;
 }
 
 .site-footer__item-inner--link_list {
@@ -264,4 +279,36 @@ p {
 
 .plus-link {
     display: flex;
+}
+
+.social-icons {
+
+    .icon {
+        width: 31px;
+        height: 31px;
+    }
+}
+
+.footer-grid-adjust {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+.footer-width-adjust-support {
+    width: 50%;
+}
+
+.footer-width-adjust-follow {
+    width: 45%;
+}
+
+.footer-padding-title-contact {
+    padding-bottom: 11px;
+}
+
+.site-footer-item-tall {
+    text-align: left;
 }
