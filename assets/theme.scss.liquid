@@ -1353,11 +1353,6 @@ html {
 }
 
 .section-header {
-  margin-bottom: $section-spacing-small;
-
-  @include media-query($medium-up) {
-    margin-bottom: $section-spacing;
-  }
 }
 
 /*================ Typography ================*/
@@ -1457,7 +1452,6 @@ h1 {
 
 h2 {
   font-size: em(floor($font-size-header * 0.78));
-  letter-spacing: 0.1em;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.78) * 0.9));
@@ -1539,8 +1533,6 @@ h6 {
   h4,
   h5,
   h6 {
-    margin-top: $gutter-site;
-    margin-bottom: $gutter-site / 2;
 
     &:first-child {
       margin-top: 0;

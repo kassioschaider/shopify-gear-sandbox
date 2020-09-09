@@ -1,38 +1,71 @@
 <div class="page-width">
-  {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
+  {% if section.settings.display_products_from_collections == false %}
+
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
+    {% endif %}
+
+    {% case section.settings.grid %}
+      {% when 2 %}
+        {%- assign grid_item_width = 'medium-up--one-half' -%}
+      {% when 3 %}
+        {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+      {% when 4 %}
+        {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+      {% when 5 %}
+        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+    {% endcase %}
+
+    <div class="collection-grid">
+      <ul class="grid grid--uniform">
+        {% for block in section.blocks limit: section.blocks.size %}
+          <li class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
+            {%- assign collection = collections[block.settings.collection] -%}
+            {% include 'collection-grid-item', collection: collection %}
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-  {% endif %}
 
-  {% case section.settings.grid %}
-    {% when 2 %}
-      {%- assign grid_item_width = 'medium-up--one-half' -%}
-    {% when 3 %}
-      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
-    {% when 4 %}
-      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
-    {% when 5 %}
-      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
-  {% endcase %}
+    {% if section.blocks.size == 0 %}
+      {% include 'no-blocks' %}
+    {% endif %}
 
-  <div class="collection-grid">
-    <ul class="grid grid--uniform">
-      {% for block in section.blocks limit: section.blocks.size %}
-        <li class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
-          {%- assign collection = collections[block.settings.collection] -%}
-          {% include 'collection-grid-item', collection: collection %}
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+  {% else %}
 
-  {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
+    {% if section.settings.pre_title != blank %}
+      <div class="text-center collection-list-uppercase">
+        {{ section.settings.pre_title | escape }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
+    {% endif %}
+
+    {% if section.settings.collections_description != blank %}
+      <div class="text-center">
+        {{ section.settings.collections_description }}
+      </div>
+    {% endif %}
   {% endif %}
 </div>
 
-
+<div class="collection-grid-adjust">
+  <ul class="collection-list-adjust">
+    {% for block in section.blocks limit: section.blocks.size %}
+      <li class="collection-list-item-adjust">
+        {%- assign collection = collections[block.settings.collection] -%}
+        {% include 'collection-list-item', collection: collection %}
+        <div class="collection-line-list"></div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 
 {% schema %}
 {
@@ -59,6 +92,18 @@
   "class": "index-section",
   "max_blocks": 12,
   "settings": [
+    {
+      "type": "text",
+      "id": "pre_title",
+      "label": {
+        "en": "Pre Heading",
+        "pt-BR": "Pre-Título"
+      },
+      "default": {
+        "en": "Pre Heading",
+        "pt-BR": "Pre-Título"
+      }
+    },
     {
       "type": "text",
       "id": "title",
@@ -102,6 +147,23 @@
         "zh-CN": "产品系列列表",
         "zh-TW": "商品系列清單"
       }
+    },
+    {
+      "type": "richtext",
+      "id": "collections_description",
+      "label": {
+        "en": "Collections Description",
+        "pt-BR": "Descrição das Coleções"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "display_products_from_collections",
+      "label": {
+        "en": "Display products from collections",
+        "pt-BR": "Exibir produtos das coleções"
+      },
+      "default": true
     },
     {
       "type": "range",
