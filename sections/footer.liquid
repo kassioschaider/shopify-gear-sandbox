@@ -253,7 +253,7 @@
   <div class="page-width footer-grid-adjust">
 
     <div class="footer-width-adjust-support">
-      <div class="footer-padding-title-contact">
+      <div class="footer-padding-title-support">
         <p class="footer-list-uppercase">Support</p>
       </div>
       <div>
@@ -262,8 +262,8 @@
       <div>
         <p class="footer-style-contact">Email Us</p>
       </div>
-      <div>
-        <p class="footer-style-opening">{{ section.settings.opening_hours }}</p>
+      <div  class="footer-style-opening">
+        {% if section.settings.opening_hours %}{{ section.settings.opening_hours }}{% endif %}
       </div>
     </div>
 
@@ -326,7 +326,7 @@
 
       <div class="grid__item {% if show_selectors or show_payment_icons %}one-half{% endif %} small--one-whole site-footer-item-tall">
         {%- if social_icons -%}
-          <div class="footer-padding-title-contact">
+          <div class="footer-padding-title-follow">
             <p class="footer-list-uppercase">Follow us</p>
           </div>
           <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
@@ -413,15 +413,11 @@
       }
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "opening_hours",
       "label": {
         "en": "Opening Hours",
         "pt-BR": "Horário de Funcionamento"
-      },
-      "default": {
-        "en": "Mon-Fri: 9am - 12am ET Sat: 9am - 5pm ET Sun: 9am - 5pm ET",
-        "pt-BR": "Mon-Fri: 9am - 12am ET Sat: 9am - 5pm ET Sun: 9am - 5pm ET"
       }
     },
     {
