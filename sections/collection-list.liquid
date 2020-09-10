@@ -52,19 +52,40 @@
         {{ section.settings.collections_description }}
       </div>
     {% endif %}
-  {% endif %}
-</div>
 
-<div class="collection-grid-adjust">
-  <ul class="collection-list-adjust">
-    {% for block in section.blocks limit: section.blocks.size %}
-      <li class="collection-list-item-adjust">
-        {%- assign collection = collections[block.settings.collection] -%}
-        {% include 'collection-list-item', collection: collection %}
-        <div class="collection-line-list"></div>
-      </li>
-    {% endfor %}
-  </ul>
+    <div class="collection-grid-adjust">
+      <ul class="collection-list-adjust">
+        {% for block in section.blocks limit: section.blocks.size %}
+          {% if forloop.first %}
+            {%- assign collection_default = collections[block.settings.collection] -%}
+          {% endif %}
+
+          {%- assign collection = collections[block.settings.collection] -%}
+          <li id="{{ collection.handle }}" class="collection-list-item-adjust collection-active">
+            <div class="">
+                <a href="" class="text-center collection-list-uppercase-item">
+                    {{ collection.title }}
+                </a>
+            </div>
+
+            {% comment %} <script>
+              console.log({{ block.settings.collection | json }});
+              console.log({{ collection_default | json }});
+
+              var id = "bachelor";
+            </script> {% endcomment %}
+
+            <div class="collection-line-list"></div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div id="list-product-custom">
+      {% include 'collection-list-item', collection: collection_default %}
+    </div>
+
+  {% endif %}
 </div>
 
 {% schema %}
