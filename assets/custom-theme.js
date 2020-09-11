@@ -21,7 +21,7 @@ $('.collection-active').on('click', function(event) {
     hiddenAllCollections();
     var id = $(this).attr('id');
     $('#products-' + id).css("display", "inline-flex");
-});
+}); 
 
 function hiddenAllCollections() {
     var list = document.querySelectorAll('.list-collection');
