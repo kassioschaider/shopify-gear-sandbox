@@ -77,7 +77,8 @@
       <div id="list-product-custom">
         {% for block in section.blocks limit: section.blocks.size %}
           {%- assign collection = collections[block.settings.collection] -%}
-          <ul id="products-{{ collection.handle }}" class="list-collection" style="display: none;">
+          <ul id="products-{{ collection.handle }}" class="list-collection" 
+            style="display: {% if forloop.first %}inline-flex{% else %}none{% endif %};">
             {% for product in collection.products %}
               <li>
                 {% include 'product-card-grid', product: product %}
