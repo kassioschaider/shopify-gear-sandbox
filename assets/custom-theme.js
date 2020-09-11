@@ -18,12 +18,14 @@ function topBar() {
 //Collection List
 $('.collection-active').on('click', function(event) {
     event.preventDefault();
-    console.log(this);
-
-    console.log($(this).attr('id'));
-
+    hiddenAllCollections();
     var id = $(this).attr('id');
-
-    $("#list-product-custom").append("{% include 'collection-list-item', collection: collections[" + id + "]%}");
+    $('#products-' + id).css("display", "inline-flex");
 });
- 
+
+function hiddenAllCollections() {
+    var list = document.querySelectorAll('.list-collection');
+    list.forEach( c => {
+        c.style.display = "none";
+    });
+}

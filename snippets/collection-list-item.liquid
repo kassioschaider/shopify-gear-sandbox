@@ -15,20 +15,10 @@
   {% assign collection_image = blank %}
 {% endif %}
 
-{% comment %} <div>
-  <ul id="collection-select">
-    {% for product in collection.products %}
-      <li>
-        {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
-      </li>
-    {% endfor %}
-  </ul>
-</div> {% endcomment %}
-
-  <ul class="grid grid--uniform grid--view-items" style="display: flex">
-    {% for product in collection.products %}
-      <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-        {% include 'product-card-grid', product: product %}
-      </li>
-    {% endfor %}
-  </ul>
+<ul id="products-{{ collection.handle }}" style="display: none">
+  {% for product in collection.products %}
+    <li>
+      {% include 'product-card-grid', product: product %}
+    </li>
+  {% endfor %}
+</ul>
