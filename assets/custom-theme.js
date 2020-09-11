@@ -10,7 +10,7 @@ window.onscroll = function() {topBar()};
 function topBar() {
 
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        $("#header-bars").remove();
+        $('#header-bars').remove();
         $('.site-header').addClass('header-onroll');
     }
 }
@@ -20,7 +20,7 @@ $('.collection-active').on('click', function(event) {
     event.preventDefault();
     hiddenAllCollections();
     var id = $(this).attr('id');
-    $('#products-' + id).css("display", "inline-flex");
+    $('#products-' + id).css('display', 'inline-flex');
 }); 
 
 function hiddenAllCollections() {
