@@ -80,8 +80,8 @@
           <ul id="products-{{ collection.handle }}" class="list-collection" 
             style="display: {% if forloop.first %}inline-flex{% else %}none{% endif %};">
             {% for product in collection.products %}
-              <li>
-                {% include 'product-card-grid', product: product %}
+              <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+                {% include 'product-card-grid-custom', max_height: 375, product: product %}
               </li>
             {% endfor %}
           </ul>
